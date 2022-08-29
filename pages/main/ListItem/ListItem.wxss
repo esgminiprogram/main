@@ -1,0 +1,60 @@
+/* pages/wallet/history/ListItem/ListItem.wxss */
+.container_for_listItem {
+    height: 100px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10px;
+    background-color: rgba(208, 116, 64, 0.3);
+    border-radius: 10px;
+}
+
+.listItem_header {
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 1ch;
+    color: rgb(152, 152, 152);
+}
+
+.listItem_bill {
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: rgb(82, 82, 82);
+}
+
+.listItem_image_camp {
+    width: 10px;
+    height: 10px;
+}
+
+.listItem_text_residenceTime {
+    font-size: 1ch;
+    margin-left: 10px;
+}
+
+.listItem_text_price {
+    position: absolute;
+    right: 30px;
+}
+
+.listItem_split {
+    border: 1rpx solid rgb(152, 152, 152);
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10px
+}
+
+.listItem_billStatus {
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.listItem_text_billStatus_paid {
+    font-size: 1ch;
+}
+
+.listItem_text_billStatus_notPaid {
+    font-size: 1ch;
+    color: red;
+}

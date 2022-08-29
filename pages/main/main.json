@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "ListItem": "./ListItem/ListItem"
+    }
+}

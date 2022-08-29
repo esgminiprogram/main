@@ -1,0 +1,111 @@
+<view class='baseInfo'>
+  <text>公司信息</text>
+</view>
+
+ 
+<form bindsubmit="formSubmit">
+<view class='list'>
+  <view class='name'>
+    <text>公司名称</text>
+    <input name="name" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入公司名称'></input>
+  </view>
+ 
+  <view class='sex'>
+    <text>激励机制</text>
+    <radio-group class="radio-group" bindchange="radioChange" name="jljz">
+      <label class="radio" wx:for="{{jljz}}" wx:key="index">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+  <view class='sex'>
+    <text>利益相关方沟通</text>
+    <radio-group class="radio-group" bindchange="radioChange" name="lyxgfgt">
+      <label class="radio" wx:for="{{lyxgfgt}}" wx:key="index">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+
+  <view class='sex'>
+    <text>供应链管理</text>
+    <radio-group class="radio-group" bindchange="radioChange" name="gylgl">
+      <label class="radio" wx:for="{{gylgl}}" wx:key="index">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+
+    <view class='phone'>
+    <text>信息披露份数</text>
+    <input name="xxpl" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入相关数据'></input>
+  </view>
+ 
+  <view class='phone'>
+    <text>研发投入(亿元)</text>
+    <input name="yftr" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入相关数据'></input>
+  </view>
+
+  <view class='phone'>
+    <text>环保投入(亿元)</text>
+    <input name="hbtr" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入相关数据'></input>
+  </view>
+
+  <view class='phone'>
+    <text>节约能耗(吨标煤)</text>
+    <input name="jynh" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入相关数据'></input>
+  </view>
+
+  <view class='phone'>
+    <text>温室气体排放(万吨二氧化碳当量)</text>
+    <input name="wsqtpf" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入相关数据'></input>
+  </view>
+
+  <view class='phone'>
+    <text>男女比例(女员工占比%)</text>
+    <input name="nnbl" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入相关数据'></input>
+  </view>
+
+  <view class='phone'>
+    <text>安全生产投入(万元)</text>
+    <input name="aqsctr" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入相关数据'></input>
+  </view>
+
+  <view class='phone'>
+    <text>公共利益(捐款:万元)</text>
+    <input name="ggly" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入相关数据'></input>
+  </view>
+
+
+
+
+
+
+
+</view>
+ 
+
+
+<button form-type='submit'>保存</button>
+</form>
+
+
+<!-- 模态框 -->
+<modal class="modal" title='要保存的信息' hidden="{{modalHidden}}" bindcancel='modalCancel' bindconfirm='modalConfirm'>
+    <text>{{information.name}} 营业收入：{{information.revenue}} 亿元 \n </text>
+                <text wx:if="{{information.xxpl != 'have' && information.xxpl != '/'}}">信息披露份数：{{information.xxpl}}  \n</text>
+                <text wx:if="{{information.yftr != 'have' && information.yftr != '/'}}">研发投入: {{information.yftr}} 亿元 \n</text>
+                <text wx:if="{{information.jljz === '1'}}">激励机制：有 \n</text>
+                <text wx:if="{{information.jljz === '0'}}">激励机制：无 \n</text>
+                <text wx:if="{{information.lyxgfgt=== '1'}}">利益相关方沟通：有 \n</text>
+                <text wx:if="{{information.lyxgfgt=== '0'}}">利益相关方沟通：有 \n</text>
+                <text wx:if="{{information.hbtr != 'have' && information.hbtr != '/'}}">环保投入：{{information.hbtr}} 亿元 \n</text>
+                <text wx:if="{{information.jynh != 'have' && information.jynh != '/'}}">节约能耗：{{information.jynh}} 吨标煤 \n</text>
+                <text wx:if="{{information.wsqtpf != 'have' && information.wsqtpf != '/'}}">温室气体排放：{{information.wsqtpf}} 万吨二氧化碳当量 \n</text>
+                <text wx:if="{{information.gylgl === '1'}}">供应链管理：有 \n</text>
+                <text wx:if="{{information.gylgl === '0'}}">供应链管理：无 \n</text>
+                <text wx:if="{{information.nnbl != 'have' && information.nnbl != '/'}}">男女比例：{{information.nnbl}} % \n</text>
+                <text wx:if="{{information.aqsctr != 'have' && information.aqsctr != '/'}}">安全生产投入：{{information.aqsctr}} 万元 \n</text>
+                <text wx:if="{{information.ggly != 'have' && information.ggly!='/'}}">公共利益（捐款）：{{information.ggly}} 万元 \n</text>
+</modal>
+<!-- /模态框 -->

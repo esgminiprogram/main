@@ -1,0 +1,6 @@
+var toFix = function(value) {
+    return value.toFixed(4);// 此处2为保留两位小数，保留几位小数，这里写几
+};
+module.exports = {
+    toFix:toFix
+};

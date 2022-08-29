@@ -1,0 +1,55 @@
+<!--pages/main/main.wxml-->
+<!-- <text>pages/main/main.wxml</text> -->
+
+<view>
+     <view>
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+            <!-- 搜索框 -->
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" bindblur="Name" class="weui-search-bar__input" placeholder="请输入公司名称"/>
+                </view>
+            </view>
+            <!-- 搜索按钮,调用搜索查询方法 -->
+            <view class="weui-search-bar__cancel-btn" wx:if="{{!search}}" bindtap="search">搜索</view>
+            <view class="weui-search-bar__cancel-btn" wx:if="{{search}}" bindtap="cancel">取消</view>
+        </view>
+    </view>
+</view>
+
+<modal title="结果查询" confirm-text="确定" cancel-text="关闭" hidden="{{modalHidden}}" bindconfirm="checkComplete" bindcancel="checkComplete">
+         
+                <text>{{searchItem.name}} 营业收入：{{searchItem.revenue}} 亿元 \n </text>
+                <text wx:if="{{searchItem.xxpl != 'have' && searchItem.xxpl != '/'}}">信息披露份数：{{searchItem.xxpl}}  \n</text>
+                <text wx:if="{{searchItem.yftr != 'have' && searchItem.yftr != '/'}}">研发投入: {{searchItem.yftr}} 亿元 \n</text>
+                <text wx:if="{{searchItem.jljz === 1}}">激励机制：有 \n</text>
+                <text wx:if="{{searchItem.jljz === 0}}">激励机制：无 \n</text>
+                <text wx:if="{{searchItem.lyxgfgt=== 1}}">利益相关方沟通：有 \n</text>
+                <text wx:if="{{searchItem.lyxgfgt=== 0}}">利益相关方沟通：有 \n</text>
+                <text wx:if="{{searchItem.hbtr != 'have' && searchItem.hbtr != '/'}}">环保投入：{{searchItem.hbtr}} 亿元 \n</text>
+                <text wx:if="{{searchItem.jynh != 'have' && searchItem.jynh != '/'}}">节约能耗：{{searchItem.jynh}} 吨标煤 \n</text>
+                <text wx:if="{{searchItem.wsqtpf != 'have' && searchItem.wsqtpf != '/'}}">温室气体排放：{{searchItem.wsqtpf}} 万吨二氧化碳当量 \n</text>
+                <text wx:if="{{searchItem.gylgl === 1}}">供应链管理：有 \n</text>
+                <text wx:if="{{searchItem.gylgl === 0}}">供应链管理：无 \n</text>
+                <text wx:if="{{searchItem.nnbl != 'have' && searchItem.nnbl != '/'}}">男女比例：{{searchItem.nnbl}} % \n</text>
+                <text wx:if="{{searchItem.aqsctr != 'have' && searchItem.aqsctr != '/'}}">安全生产投入：{{searchItem.aqsctr}} 万元 \n</text>
+                <text wx:if="{{searchItem.ggly != 'have' && searchItem.ggly!='/'}}">公共利益（捐款）：{{searchItem.ggly}} 万元 \n</text>
+                <text>分值 {{searchItem.score}}</text>
+          
+</modal>
+
+
+<view class="container_for_wallet_history">
+    <!-- <image class="history_background_image" src="../../../imgs/figma背景.png"></image> -->
+    <view class="container_for_history_scroll_view">
+        <scroll-view scroll-y>
+            <view wx:for="{{info}}" >
+                <ListItem itemData="{{item}}" bindtap="btnclick" data-obj="{{item}}" wx:if="{{!search}}"></ListItem>
+                <ListItem itemData="{{item}}" bindtap="btnclick" data-obj="{{item}}" wx:if="{{search && item.name === searchName}}"></ListItem>
+            </view>
+        </scroll-view>
+      </view>
+</view>
+
+

@@ -1,0 +1,19 @@
+<!--pages/main/ListItem/ListItem.wxml-->
+
+<wxs src="../../../utils/filter.wxs" module="filter"></wxs>
+<view class="container_for_listItem" >
+    <view class="listItem_header">
+        <text class="listItem_text_historyDate">  名称</text> 
+    </view>
+    <view class="listItem_bill">
+        <text class="listItem_text_residenceTime">{{itemData.name}}</text>
+        <text class="listItem_text_price">营收：{{itemData.revenue}}亿元</text>
+    </view>
+    <view class="listItem_split"></view>
+    <view class="listItem_billStatus">
+        <!-- <view wx:if="{{itemData.billStatus === 1}}" class="listItem_text_billStatus_paid">已支付</view> -->
+        <view  class="listItem_text_billStatus_notPaid">分值：{{filter.toFix(itemData.score)}}</view>
+        
+    </view>
+</view>
+
